@@ -3,6 +3,18 @@
 body {
     font-family: Poppins;
 }
-#errorPassword, #errorName, #errorPhone {
+/* #errorPassword, #errorName, #errorPhone {
     display: none;
+} */
+.invalid-feedback{
+    display: block;
+}
+.error{
+    border: 1px solid #dc3545;
+}
+.valid{
+    border: 1px solid green;
+}
+.text-danger{
+    font-size: 0.8rem;
 }

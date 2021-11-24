@@ -31,13 +31,13 @@
       <ul class="navbar-nav ml-auto">
         <li class="nav-item">
           <a class="nav-link text-white btn" id="cart" type="button" data-toggle="modal"
-            data-target="#cartModal" onclick="cart()" href="#beauty"><i class="fas fa-cart-arrow-down"></i>
+            data-target="#cartModal" onclick="printCart()" href="#beauty"><i class="fas fa-cart-arrow-down"></i>
             My Cart</a>
         </li>
       </ul>
     </div>
   </nav>
-
+ <!-- onclick=cart() -->
   <h1 class="text-center mt-3 m-5">Welcome to the ShopNow</h1>
 
   <!-- Grocery part -->
@@ -144,10 +144,11 @@
   </section>
 
   <!-- modal -->
+
   <aside>
-    <div class="modal fade" id="cartModal" tabindex="-1" role="dialog"
+    <div class="modal fade bd-example-modal-lg" id="cartModal" tabindex="-1" role="dialog"
       aria-labelledby="cartModalTitle" aria-hidden="true">
-      <div class="modal-dialog modal-dialog-scrollable" role="document">
+      <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
         <div class="modal-content">
           <div class="modal-header">
             <h5 class="modal-title" id="cartModalScrollableTitle"><i class="fas fa-cart-arrow-down"></i>My Cart</h5>
@@ -157,22 +158,47 @@
           </div>
           <div class="modal-body">
             <!-- listing items starts -->
-            <div>
-              <ul class="list">
-
-              </ul>
-              <div>
-                <h3 class="text-center bill px-5">Select Something</h3>
+            <div class="row">
+              <div class="col-4">
+                <p>Item</p>
+                <ul id='shoppingList' class="list">
+                </ul>
               </div>
-              <div class="text-center"> 
+              <div class="col-1">
+                <p>Quantity</p>
+                <ul id="shoppingListQuantity"></ul>
+              </div>
+              <div class="col-1">
+                <p style='color: transparent;'>-</p>
+                <div id="shoppingListBtn"></div>
+              </div>
+              <div class="col-1">
+                <p style='color: transparent;'>-</p>
+                <div id="addShoppingListBtn"></div>
+              </div>
+              <div class="col-2">
+                <p>Subtotal</p>
+                <ul id="shoppingListSubtotal"></ul>
+              </div>
+            </div>
+            <div class="row">
+                <div class="col-12">
+                  <p>Total: <span id="shoppingListTotal"></span></p>
+                  <p>Total with discount: <span id="shoppingListTotalWithDiscount"></span></p>
+                </div>
+            </div>
+            <div class="row">
+              <div class="col-12 text-center"> 
                 <a href="checkout.html" class="btn btn-primary m-3">Checkout</a>
               </div>
             </div>
+          </div>
             <!-- listing items ends -->
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-dismiss="modal" onclick="emptyShoppingList()">Close</button>
+            </div>
           </div>
-          <div class="modal-footer">
-            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-          </div>
+
         </div>
       </div>
     </div>
